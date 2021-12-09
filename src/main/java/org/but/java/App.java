@@ -20,12 +20,11 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            loader = new FXMLLoader(getClass().getResource("login.fxml"));
+            loader = new FXMLLoader(getClass().getResource("Login.fxml"));
             mainStage = loader.load();
 
             primaryStage.setTitle("BDS JavaFX Demo");
             Scene scene = new Scene(mainStage);
-            setUserAgentStylesheet(STYLESHEET_MODENA);
 
             primaryStage.setScene(scene);
             primaryStage.show();

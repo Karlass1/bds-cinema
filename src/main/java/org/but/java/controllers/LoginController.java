@@ -38,11 +38,9 @@ public class LoginController {
     @FXML
     public Label passwordLabel;
     @FXML
-    public Label vutLogo;
-    @FXML
     private Button signInButton;
     @FXML
-    private TextField usernameTextfield;
+    private TextField usernameTextField;
     @FXML
     private PasswordField passwordTextField;
 
@@ -59,7 +57,7 @@ public class LoginController {
         GlyphsDude.setIcon(signInButton, FontAwesomeIcon.SIGN_IN, "1em");
         GlyphsDude.setIcon(usernameLabel, FontAwesomeIcon.USER, "2em");
         GlyphsDude.setIcon(passwordLabel, FontAwesomeIcon.USER_SECRET, "2em");
-        usernameTextfield.setOnKeyPressed(event -> {
+        usernameTextField.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER) {
                 handleSignIn();
             }
@@ -78,7 +76,7 @@ public class LoginController {
 
     private void initializeValidations() {
         validation = new ValidationSupport();
-        validation.registerValidator(usernameTextfield, Validator.createEmptyValidator("The username must not be empty."));
+        validation.registerValidator(usernameTextField, Validator.createEmptyValidator("The username must not be empty."));
         validation.registerValidator(passwordTextField, Validator.createEmptyValidator("The password must not be empty."));
         signInButton.disableProperty().bind(validation.invalidProperty());
     }
@@ -88,21 +86,12 @@ public class LoginController {
         authService = new AuthService(personRepository);
     }
 
-    private void initializeLogos() {
-        Image vutImage = new Image(App.class.getResourceAsStream("logos/vut-logo-eng.png"));
-        ImageView vutLogoImage = new ImageView(vutImage);
-        vutLogoImage.setFitHeight(85);
-        vutLogoImage.setFitWidth(150);
-        vutLogoImage.setPreserveRatio(true);
-        vutLogo.setGraphic(vutLogoImage);
-    }
-
     public void signInActionHandler(ActionEvent event) {
         handleSignIn();
     }
 
     private void handleSignIn() {
-        String username = usernameTextfield.getText();
+        String username = usernameTextField.getText();
         String password = passwordTextField.getText();
 
 //        try {
@@ -110,10 +99,10 @@ public class LoginController {
 //            if (authenticated) {
 //                showPersonsView();
 //            } else {
-//                showInvalidPaswordDialog();
+//                showInvalidPasswordDialog();
 //            }
 //        } catch (ResourceNotFoundException | DataAccessException e) {
-//            showInvalidPaswordDialog();
+//            showInvalidPasswordDialog();
 //        }
       }
 
@@ -128,8 +117,6 @@ public class LoginController {
 
             Stage stageOld = (Stage) signInButton.getScene().getWindow();
             stageOld.close();
-
-            stage.getIcons().add(new Image(App.class.getResourceAsStream("logos/vut.jpg")));
             authConfirmDialog();
 
             stage.show();
@@ -138,7 +125,7 @@ public class LoginController {
         }
     }
 
-    private void showInvalidPaswordDialog() {
+    private void showInvalidPasswordDialog() {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Unauthenticated");
         alert.setHeaderText("The user is not authenticated");

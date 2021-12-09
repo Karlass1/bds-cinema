@@ -1,6 +1,5 @@
 package org.but.java.data;
 
-public class PersonRepository
-{
+public class PersonRepository {
 //SQL
 }

@@ -2,9 +2,9 @@ package org.but.java.controllers;
 
 import org.but.java.App;
 import org.but.java.data.PersonRepository;
-//import org.but.java.exceptions.DataAccessException;
-// org.but.java.exceptions.ExceptionHandler;
-//import org.but.java.exceptions.ResourceNotFoundException;
+import org.but.java.exceptions.DataAccessException;
+import org.but.java.exceptions.ExceptionHandler;
+import org.but.java.exceptions.ResourceNotFoundException;
 import org.but.java.services.AuthService;
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
@@ -115,7 +115,7 @@ public class LoginController {
 //        } catch (ResourceNotFoundException | DataAccessException e) {
 //            showInvalidPaswordDialog();
 //        }
-//    }
+      }
 
     private void showPersonsView() {
         try {

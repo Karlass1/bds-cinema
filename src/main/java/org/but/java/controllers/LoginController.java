@@ -94,16 +94,16 @@ public class LoginController {
         String username = usernameTextField.getText();
         String password = passwordTextField.getText();
 
-//        try {
-//            boolean authenticated = authService.authenticate(username, password);
-//            if (authenticated) {
-//                showPersonsView();
-//            } else {
-//                showInvalidPasswordDialog();
-//            }
-//        } catch (ResourceNotFoundException | DataAccessException e) {
-//            showInvalidPasswordDialog();
-//        }
+        try {
+            boolean authenticated = authService.authenticate(username, password);
+            if (authenticated) {
+                showPersonsView();
+            } else {
+                showInvalidPasswordDialog();
+            }
+        } catch (ResourceNotFoundException | DataAccessException e) {
+            showInvalidPasswordDialog();
+        }
       }
 
     private void showPersonsView() {

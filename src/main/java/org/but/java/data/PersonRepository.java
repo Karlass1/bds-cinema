@@ -3,6 +3,8 @@ package org.but.java.data;
 import org.but.java.api.*;
 import org.but.java.config.DataSourceConfig;
 import org.but.java.exceptions.DataAccessException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -10,7 +12,10 @@ import java.util.List;
 
 public class PersonRepository {
 
+    private static final Logger logger = LoggerFactory.getLogger(PersonRepository.class);
+
     public PersonAuthView findPersonByEmail(String email) {
+        logger.debug("findPersonByEmail: " + email);
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
                      "SELECT email, pwd" +
@@ -49,11 +54,7 @@ public class PersonRepository {
         return null;
     }
 
-    /**
-     * What will happen if we do not use LEFT JOIN? What persons will be returned? Ask your self and repeat JOIN from the presentations
-     *
-     * @return list of persons
-     */
+
     public List<PersonBasicView> getPersonsBasicView() {
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(

@@ -20,7 +20,7 @@
         </encoder>
     </appender>
 
-    <logger name="org.but.feec.bds-cinema">
+    <logger name="org.but.java">
         <appender-ref ref="FILE"/>
     </logger>
 

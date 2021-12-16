@@ -5,7 +5,7 @@ public class PersonEditView {
     private Long id;
     private String email;
     private String firstName;
-    private String nickname;
+    private String age;
     private String surname;
 
     public Long getId() {
@@ -32,12 +32,12 @@ public class PersonEditView {
         this.firstName = firstName;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getAge() {
+        return age;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setAge(String age) {
+        this.age = age;
     }
 
     public String getSurname() {
@@ -53,7 +53,7 @@ public class PersonEditView {
         return "PersonEditView{" +
                 "email='" + email + '\'' +
                 ", firstName='" + firstName + '\'' +
-                ", nickname='" + nickname + '\'' +
+                ", age='" + age + '\'' +
                 ", surname='" + surname + '\'' +
                 '}';
     }

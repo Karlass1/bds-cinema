@@ -6,7 +6,7 @@ public class PersonCreateView {
 
     private String email;
     private String firstName;
-    private String nickname;
+    private String age;
     private String surname;
     private char[] pwd;
 
@@ -26,12 +26,12 @@ public class PersonCreateView {
         this.firstName = firstName;
     }
 
-    public String getNickname() {
-        return nickname;
+    public String getAge() {
+        return age;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setAge(String age) {
+        this.age = age;
     }
 
     public String getSurname() {
@@ -55,8 +55,8 @@ public class PersonCreateView {
         return "PersonCreateView{" +
                 "email='" + email + '\'' +
                 ", firstName='" + firstName + '\'' +
-                ", nickname='" + nickname + '\'' +
                 ", surname='" + surname + '\'' +
+                ", age='" + age + '\'' +
                 ", pwd=" + Arrays.toString(pwd) +
                 '}';
     }

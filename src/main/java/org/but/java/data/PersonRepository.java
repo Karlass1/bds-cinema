@@ -19,7 +19,7 @@ public class PersonRepository {
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
                      "SELECT email, pwd" +
-                             " FROM bds.person p" +
+                             " FROM public.person p" +
                              " WHERE p.email = ?")
         ) {
             preparedStatement.setString(1, email);
@@ -38,10 +38,10 @@ public class PersonRepository {
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
                      "SELECT person_id, email, first_name, last_name, city, street" +
-                             " FROM bds.person p" +
-                             " LEFT JOIN bds.person_has_address pa ON p.person_id = pa.person_id" +
-                             " LEFT JOIN bds.address a ON pa.address_id = a.address_id" +
-                             " WHERE p.id_person = ?")
+                             " FROM public.person p" +
+                             " LEFT JOIN public.person_has_address pa ON p.person_id = pa.person_id" +
+                             " LEFT JOIN public.address a ON pa.address_id = a.address_id" +
+                             " WHERE p.person_id = ?")
         ) {
             preparedStatement.setLong(1, personId);
             try (ResultSet resultSet = preparedStatement.executeQuery()) {
@@ -59,8 +59,8 @@ public class PersonRepository {
     public List<PersonBasicView> getPersonsBasicView() {
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "SELECT id_person, email, first_name, surname, nickname, city" +
-                             " FROM bds.person p" +
+                     "SELECT id_person, email, first_name, surname, age, city" +
+                             " FROM public.person p" +
                              " LEFT JOIN bds.person_has_address pa ON p.person_id = pa.person_id" +
                              " LEFT JOIN bds.address a ON pa.address_id = a.address_id");
              ResultSet resultSet = preparedStatement.executeQuery();) {
@@ -75,17 +75,16 @@ public class PersonRepository {
     }
 
     public void createPerson(PersonCreateView personCreateView) {
-        String insertPersonSQL = "INSERT INTO bds.person (first_name, last_name, age, email) VALUES (?,?,?,?)";
+        String insertPersonSQL = "INSERT INTO public.person (first_name, last_name, age, email, pwd) VALUES (?,?,?,?,?)";
         try (Connection connection = DataSourceConfig.getConnection();
              // would be beneficial if I will return the created entity back
              PreparedStatement preparedStatement = connection.prepareStatement(insertPersonSQL, Statement.RETURN_GENERATED_KEYS)) {
             // set prepared statement variables
-            //DODELAT INDEXY PODLE TABULKY
             preparedStatement.setString(1, personCreateView.getFirstName());
             preparedStatement.setString(2, personCreateView.getSurname());
-            preparedStatement.setString(3, personCreateView.getNickname());
-            preparedStatement.setString(4, String.valueOf(personCreateView.getPwd()));
-            preparedStatement.setString(5, personCreateView.getSurname());
+            preparedStatement.setString(3, personCreateView.getAge());
+            preparedStatement.setString(4, personCreateView.getEmail());
+            preparedStatement.setString(5, String.valueOf(personCreateView.getPwd()));
 
             int affectedRows = preparedStatement.executeUpdate();
 
@@ -98,21 +97,19 @@ public class PersonRepository {
     }
 
     public void editPerson(PersonEditView personEditView) {
-        String insertPersonSQL = "UPDATE bds.person p SET email = ?, first_name = ?, nickname = ?, surname = ? WHERE p.id_person = ?";
-        String checkIfExists = "SELECT email FROM bds.person p WHERE p.id_person = ?";
+        String insertPersonSQL = "UPDATE public.person p SET email = ?, first_name = ?, age = ?, last_name = ? WHERE p.id_person = ?";
+        String checkIfExists = "SELECT email FROM public.person p WHERE p.person_id = ?";
         try (Connection connection = DataSourceConfig.getConnection();
              // would be beneficial if I will return the created entity back
              PreparedStatement preparedStatement = connection.prepareStatement(insertPersonSQL, Statement.RETURN_GENERATED_KEYS)) {
             // set prepared statement variables
             preparedStatement.setString(1, personEditView.getEmail());
             preparedStatement.setString(2, personEditView.getFirstName());
-            preparedStatement.setString(3, personEditView.getNickname());
+            preparedStatement.setString(3, personEditView.getAge());
             preparedStatement.setString(4, personEditView.getSurname());
             preparedStatement.setLong(5, personEditView.getId());
 
             try {
-                // TODO set connection autocommit to false
-                /* HERE */
                 try (PreparedStatement ps = connection.prepareStatement(checkIfExists, Statement.RETURN_GENERATED_KEYS)) {
                     ps.setLong(1, personEditView.getId());
                     ps.execute();
@@ -125,14 +122,9 @@ public class PersonRepository {
                 if (affectedRows == 0) {
                     throw new DataAccessException("Creating person failed, no rows affected.");
                 }
-                // TODO commit the transaction (both queries were performed)
-                /* HERE */
+
             } catch (SQLException e) {
-                // TODO rollback the transaction if something wrong occurs
-                /* HERE */
-            } finally {
-                // TODO set connection autocommit back to true
-                /* HERE */
+
             }
         } catch (SQLException e) {
             throw new DataAccessException("Creating person failed operation on the database failed.");
@@ -140,11 +132,7 @@ public class PersonRepository {
     }
 
 
-    /**
-     * <p>
-     * Note: In practice reflection or other mapping frameworks can be used (e.g., MapStruct)
-     * </p>
-     */
+
     private PersonAuthView mapToPersonAuth(ResultSet rs) throws SQLException {
         PersonAuthView person = new PersonAuthView();
         person.setEmail(rs.getString("email"));
@@ -154,11 +142,11 @@ public class PersonRepository {
 
     private PersonBasicView mapToPersonBasicView(ResultSet rs) throws SQLException {
         PersonBasicView personBasicView = new PersonBasicView();
-        personBasicView.setId(rs.getLong("id_person"));
+        personBasicView.setId(rs.getLong("person_id"));
         personBasicView.setEmail(rs.getString("email"));
         personBasicView.setGivenName(rs.getString("first_name"));
-        personBasicView.setFamilyName(rs.getString("surname"));
-        personBasicView.setNickname(rs.getString("nickname"));
+        personBasicView.setFamilyName(rs.getString("last_name"));
+        personBasicView.setAge(rs.getString("age"));
         personBasicView.setCity(rs.getString("city"));
         return personBasicView;
     }
@@ -168,8 +156,8 @@ public class PersonRepository {
         personDetailView.setId(rs.getLong("id_person"));
         personDetailView.setEmail(rs.getString("email"));
         personDetailView.setGivenName(rs.getString("first_name"));
-        personDetailView.setFamilyName(rs.getString("surname"));
-        personDetailView.setNickname(rs.getString("nickname"));
+        personDetailView.setFamilyName(rs.getString("last_name"));
+        personDetailView.setAge(rs.getString("age"));
         personDetailView.setCity(rs.getString("city"));
         personDetailView.sethouseNumber(rs.getString("house_number"));
         personDetailView.setStreet(rs.getString("street"));

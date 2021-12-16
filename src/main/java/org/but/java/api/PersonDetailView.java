@@ -10,7 +10,7 @@ public class PersonDetailView {
     private StringProperty email = new SimpleStringProperty();
     private StringProperty givenName = new SimpleStringProperty();
     private StringProperty familyName = new SimpleStringProperty();
-    private StringProperty nickname = new SimpleStringProperty();
+    private StringProperty age = new SimpleStringProperty();
     private StringProperty city = new SimpleStringProperty();
     private StringProperty street = new SimpleStringProperty();
     private StringProperty houseNumber = new SimpleStringProperty();
@@ -47,12 +47,12 @@ public class PersonDetailView {
         this.familyNameProperty().setValue(familyName);
     }
 
-    public String getNickname() {
-        return nicknameProperty().get();
+    public String getAge() {
+        return ageProperty().get();
     }
 
-    public void setNickname(String nickname) {
-        this.nicknameProperty().set(nickname);
+    public void setAge(String age) {
+        this.ageProperty().set(age);
     }
 
     public String getCity() {
@@ -95,8 +95,8 @@ public class PersonDetailView {
         return familyName;
     }
 
-    public StringProperty nicknameProperty() {
-        return nickname;
+    public StringProperty ageProperty() {
+        return age;
     }
 
     public StringProperty cityProperty() {

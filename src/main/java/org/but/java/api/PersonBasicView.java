@@ -11,7 +11,7 @@ public class PersonBasicView {
     private StringProperty email = new SimpleStringProperty();
     private StringProperty givenName = new SimpleStringProperty();
     private StringProperty familyName = new SimpleStringProperty();
-    private StringProperty nickname = new SimpleStringProperty();
+    private StringProperty age = new SimpleStringProperty();
 
     public Long getId() {
         return idProperty().get();
@@ -53,12 +53,12 @@ public class PersonBasicView {
         this.familyNameProperty().setValue(familyName);
     }
 
-    public String getNickname() {
-        return nicknameProperty().get();
+    public String getAge() {
+        return ageProperty().get();
     }
 
-    public void setNickname(String nickname) {
-        this.nicknameProperty().set(nickname);
+    public void setAge(String age) {
+        this.ageProperty().set(age);
     }
 
     public LongProperty idProperty() {
@@ -81,8 +81,8 @@ public class PersonBasicView {
         return familyName;
     }
 
-    public StringProperty nicknameProperty() {
-        return nickname;
+    public StringProperty ageProperty() {
+        return age;
     }
 
 }

@@ -37,9 +37,10 @@ public class PersonRepository {
     public PersonDetailView findPersonDetailedView(Long personId) {
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "SELECT id_person, email, first_name, surname, nickname, city, house_number, street" +
+                     "SELECT person_id, email, first_name, last_name, city, street" +
                              " FROM bds.person p" +
-                             " LEFT JOIN bds.address a ON p.id_address = a.id_address" +
+                             " LEFT JOIN bds.person_has_address pa ON p.person_id = pa.person_id" +
+                             " LEFT JOIN bds.address a ON pa.address_id = a.address_id" +
                              " WHERE p.id_person = ?")
         ) {
             preparedStatement.setLong(1, personId);
@@ -60,7 +61,8 @@ public class PersonRepository {
              PreparedStatement preparedStatement = connection.prepareStatement(
                      "SELECT id_person, email, first_name, surname, nickname, city" +
                              " FROM bds.person p" +
-                             " LEFT JOIN bds.address a ON p.id_address = a.id_address");
+                             " LEFT JOIN bds.person_has_address pa ON p.person_id = pa.person_id" +
+                             " LEFT JOIN bds.address a ON pa.address_id = a.address_id");
              ResultSet resultSet = preparedStatement.executeQuery();) {
             List<PersonBasicView> personBasicViews = new ArrayList<>();
             while (resultSet.next()) {
@@ -73,13 +75,14 @@ public class PersonRepository {
     }
 
     public void createPerson(PersonCreateView personCreateView) {
-        String insertPersonSQL = "INSERT INTO bds.person (email, first_name, nickname, pwd, surname) VALUES (?,?,?,?,?)";
+        String insertPersonSQL = "INSERT INTO bds.person (first_name, last_name, age, email) VALUES (?,?,?,?)";
         try (Connection connection = DataSourceConfig.getConnection();
              // would be beneficial if I will return the created entity back
              PreparedStatement preparedStatement = connection.prepareStatement(insertPersonSQL, Statement.RETURN_GENERATED_KEYS)) {
             // set prepared statement variables
-            preparedStatement.setString(1, personCreateView.getEmail());
-            preparedStatement.setString(2, personCreateView.getFirstName());
+            //DODELAT INDEXY PODLE TABULKY
+            preparedStatement.setString(1, personCreateView.getFirstName());
+            preparedStatement.setString(2, personCreateView.getSurname());
             preparedStatement.setString(3, personCreateView.getNickname());
             preparedStatement.setString(4, String.valueOf(personCreateView.getPwd()));
             preparedStatement.setString(5, personCreateView.getSurname());

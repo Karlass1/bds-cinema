@@ -59,10 +59,10 @@ public class PersonRepository {
     public List<PersonBasicView> getPersonsBasicView() {
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "SELECT id_person, email, first_name, surname, age, city" +
+                     "SELECT person_id, email, first_name, last_name, age, city" +
                              " FROM public.person p" +
-                             " LEFT JOIN bds.person_has_address pa ON p.person_id = pa.person_id" +
-                             " LEFT JOIN bds.address a ON pa.address_id = a.address_id");
+                             " LEFT JOIN public.person_has_address pa ON p.person_id = pa.person_id" +
+                             " LEFT JOIN public.address a ON pa.address_id = a.address_id");
              ResultSet resultSet = preparedStatement.executeQuery();) {
             List<PersonBasicView> personBasicViews = new ArrayList<>();
             while (resultSet.next()) {
@@ -89,10 +89,10 @@ public class PersonRepository {
             int affectedRows = preparedStatement.executeUpdate();
 
             if (affectedRows == 0) {
-                throw new DataAccessException("Creating person failed, no rows affected.");
+                throw new DataAccessException("Person creation  failed, no rows affected.");
             }
         } catch (SQLException e) {
-            throw new DataAccessException("Creating person failed operation on the database failed.");
+            throw new DataAccessException("Person creation  failed operation on the database failed.");
         }
     }
 
@@ -114,20 +114,20 @@ public class PersonRepository {
                     ps.setLong(1, personEditView.getId());
                     ps.execute();
                 } catch (SQLException e) {
-                    throw new DataAccessException("This person for edit do not exists.");
+                    throw new DataAccessException("This person for edit does not exist.");
                 }
 
                 int affectedRows = preparedStatement.executeUpdate();
 
                 if (affectedRows == 0) {
-                    throw new DataAccessException("Creating person failed, no rows affected.");
+                    throw new DataAccessException("Person creation failed, no rows affected.");
                 }
 
             } catch (SQLException e) {
 
             }
         } catch (SQLException e) {
-            throw new DataAccessException("Creating person failed operation on the database failed.");
+            throw new DataAccessException("Person creation failed operation on the database failed.");
         }
     }
 
@@ -153,7 +153,7 @@ public class PersonRepository {
 
     private PersonDetailView mapToPersonDetailView(ResultSet rs) throws SQLException {
         PersonDetailView personDetailView = new PersonDetailView();
-        personDetailView.setId(rs.getLong("id_person"));
+        personDetailView.setId(rs.getLong("person_id"));
         personDetailView.setEmail(rs.getString("email"));
         personDetailView.setGivenName(rs.getString("first_name"));
         personDetailView.setFamilyName(rs.getString("last_name"));

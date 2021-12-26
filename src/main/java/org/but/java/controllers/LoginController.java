@@ -109,8 +109,8 @@ public class LoginController {
     private void showPersonsView() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
-            fxmlLoader.setLocation(App.class.getResource("fxml/Persons.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 1050, 600);
+            fxmlLoader.setLocation(App.class.getResource("fxml/Persons2.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 750);
             Stage stage = new Stage();
             stage.setTitle("BDS JavaFX Demo App");
             stage.setScene(scene);

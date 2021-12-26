@@ -27,9 +27,9 @@ public class AuthService {
             throw new ResourceNotFoundException("Provided username is not found.");
         }
 
-        //BCrypt.Result result = BCrypt.verifyer().verify(password.toCharArray(), personAuthView.getPassword());
-        //return result.verified;
-        return true;
+        BCrypt.Result result = BCrypt.verifyer().verify(password.toCharArray(), personAuthView.getPassword());
+        return result.verified;
+
     }
 
 

@@ -8,7 +8,9 @@ import javafx.stage.Stage;
 import org.but.java.App;
 import org.but.java.api.PersonBasicView;
 import org.but.java.api.PersonDetailView;
+import org.but.java.config.DataSourceConfig;
 import org.but.java.data.PersonRepository;
+import org.but.java.exceptions.DataAccessException;
 import org.but.java.exceptions.ExceptionHandler;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,6 +23,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 public class PersonsController {
@@ -34,8 +40,6 @@ public class PersonsController {
     @FXML
     private TableColumn<PersonBasicView, Long> personsId;
     @FXML
-    private TableColumn<PersonBasicView, String> personsCity;
-    @FXML
     private TableColumn<PersonBasicView, String> personsEmail;
     @FXML
     private TableColumn<PersonBasicView, String> personsFamilyName;
@@ -45,8 +49,7 @@ public class PersonsController {
     private TableColumn<PersonBasicView, String> personsAge;
     @FXML
     private TableView<PersonBasicView> systemPersonsTableView;
-//    @FXML
-//    public MenuItem exitMenuItem;
+
 
     private PersonService personService;
     private PersonRepository personRepository;
@@ -58,10 +61,8 @@ public class PersonsController {
     private void initialize() {
         personRepository = new PersonRepository();
         personService = new PersonService(personRepository);
-//        GlyphsDude.setIcon(exitMenuItem, FontAwesomeIcon.CLOSE, "1em");
 
         personsId.setCellValueFactory(new PropertyValueFactory<PersonBasicView, Long>("id"));
-        personsCity.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("city"));
         personsEmail.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("email"));
         personsFamilyName.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("familyName"));
         personsGivenName.setCellValueFactory(new PropertyValueFactory<PersonBasicView, String>("givenName"));
@@ -74,7 +75,6 @@ public class PersonsController {
         systemPersonsTableView.getSortOrder().add(personsId);
 
         initializeTableViewSelection();
-        loadIcons();
 
         logger.info("PersonsController initialized");
     }
@@ -82,6 +82,7 @@ public class PersonsController {
     private void initializeTableViewSelection() {
         MenuItem edit = new MenuItem("Edit person");
         MenuItem detailedView = new MenuItem("Detailed person view");
+        MenuItem deletePerson = new MenuItem("Delete person");
         edit.setOnAction((ActionEvent event) -> {
             PersonBasicView personView = systemPersonsTableView.getSelectionModel().getSelectedItem();
             try {
@@ -131,11 +132,26 @@ public class PersonsController {
                 ExceptionHandler.handleException(ex);
             }
         });
+        deletePerson.setOnAction((ActionEvent event) -> {
+            PersonBasicView personView = systemPersonsTableView.getSelectionModel().getSelectedItem();
+            try (Connection connection = DataSourceConfig.getConnection();
+                 PreparedStatement preparedStatement = connection.prepareStatement(
+                         "DELETE FROM cinema.person p WHERE p.person_id = ?")
+            ) {
+                preparedStatement.setLong(1, personView.getId());
+                preparedStatement.execute();
+
+            } catch (SQLException e) {
+                throw new DataAccessException("Find person by ID with addresses failed.", e);
+            }
+        });
 
 
         ContextMenu menu = new ContextMenu();
         menu.getItems().add(edit);
+        menu.getItems().add(deletePerson);
         menu.getItems().addAll(detailedView);
+
         systemPersonsTableView.setContextMenu(menu);
     }
 
@@ -144,12 +160,6 @@ public class PersonsController {
         return FXCollections.observableArrayList(persons);
     }
 
-    private void loadIcons() {
-        Image vutLogoImage = new Image(App.class.getResourceAsStream("logos/vut-logo-eng.png"));
-        ImageView vutLogo = new ImageView(vutLogoImage);
-        vutLogo.setFitWidth(150);
-        vutLogo.setFitHeight(50);
-    }
 
     public void handleExitMenuItem(ActionEvent event) {
         System.exit(0);
@@ -182,4 +192,5 @@ public class PersonsController {
         systemPersonsTableView.refresh();
         systemPersonsTableView.sort();
     }
+
 }

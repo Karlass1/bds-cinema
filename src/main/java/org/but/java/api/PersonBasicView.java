@@ -7,7 +7,6 @@ import javafx.beans.property.StringProperty;
 
 public class PersonBasicView {
     private LongProperty id = new SimpleLongProperty();
-    private StringProperty city = new SimpleStringProperty();
     private StringProperty email = new SimpleStringProperty();
     private StringProperty givenName = new SimpleStringProperty();
     private StringProperty familyName = new SimpleStringProperty();
@@ -19,14 +18,6 @@ public class PersonBasicView {
 
     public void setId(Long id) {
         this.idProperty().setValue(id);
-    }
-
-    public String getCity() {
-        return cityProperty().get();
-    }
-
-    public void setCity(String city) {
-        this.cityProperty().setValue(city);
     }
 
     public String getEmail() {
@@ -63,10 +54,6 @@ public class PersonBasicView {
 
     public LongProperty idProperty() {
         return id;
-    }
-
-    public StringProperty cityProperty() {
-        return city;
     }
 
     public StringProperty emailProperty() {

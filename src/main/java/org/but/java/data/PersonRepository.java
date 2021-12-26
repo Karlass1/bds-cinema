@@ -19,7 +19,7 @@ public class PersonRepository {
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
                      "SELECT email, pwd" +
-                             " FROM public.person p" +
+                             " FROM cinema.person p" +
                              " WHERE p.email = ?")
         ) {
             preparedStatement.setString(1, email);
@@ -37,10 +37,11 @@ public class PersonRepository {
     public PersonDetailView findPersonDetailedView(Long personId) {
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "SELECT person_id, email, first_name, last_name, city, street" +
-                             " FROM public.person p" +
-                             " LEFT JOIN public.person_has_address pa ON p.person_id = pa.person_id" +
-                             " LEFT JOIN public.address a ON pa.address_id = a.address_id" +
+                     "SELECT p.person_id, first_name, last_name, email, age, \"role\", city" +
+                             " FROM  cinema.role r RIGHT JOIN cinema.person_has_role pr ON pr.role_id = r.role_id" +
+                             " RIGHT JOIN cinema.person p ON p.person_id = pr.person_id" +
+                             " LEFT JOIN cinema.person_has_address pa ON p.person_id = pa.person_id" +
+                             " LEFT JOIN cinema.address a ON pa.address_id = a.address_id" +
                              " WHERE p.person_id = ?")
         ) {
             preparedStatement.setLong(1, personId);
@@ -59,10 +60,8 @@ public class PersonRepository {
     public List<PersonBasicView> getPersonsBasicView() {
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "SELECT person_id, email, first_name, last_name, age, city" +
-                             " FROM public.person p" +
-                             " LEFT JOIN public.person_has_address pa ON p.person_id = pa.person_id" +
-                             " LEFT JOIN public.address a ON pa.address_id = a.address_id");
+                     "SELECT person_id, email, first_name, last_name, age" +
+                             " FROM cinema.person");
              ResultSet resultSet = preparedStatement.executeQuery();) {
             List<PersonBasicView> personBasicViews = new ArrayList<>();
             while (resultSet.next()) {
@@ -75,17 +74,17 @@ public class PersonRepository {
     }
 
     public void createPerson(PersonCreateView personCreateView) {
-        String insertPersonSQL = "INSERT INTO public.person (first_name, last_name, age, email, pwd) VALUES (?,?,?,?,?)";
+        String insertPersonSQL = "INSERT INTO cinema.person (first_name, last_name, age, email, pwd) VALUES (?, ?, ? ,? , ?)";
         try (Connection connection = DataSourceConfig.getConnection();
              // would be beneficial if I will return the created entity back
              PreparedStatement preparedStatement = connection.prepareStatement(insertPersonSQL, Statement.RETURN_GENERATED_KEYS)) {
             // set prepared statement variables
             preparedStatement.setString(1, personCreateView.getFirstName());
             preparedStatement.setString(2, personCreateView.getSurname());
-            preparedStatement.setString(3, personCreateView.getAge());
+            preparedStatement.setInt(3, Integer.valueOf(personCreateView.getAge()));
             preparedStatement.setString(4, personCreateView.getEmail());
             preparedStatement.setString(5, String.valueOf(personCreateView.getPwd()));
-
+            System.out.println(personCreateView.getPwd());
             int affectedRows = preparedStatement.executeUpdate();
 
             if (affectedRows == 0) {
@@ -97,15 +96,15 @@ public class PersonRepository {
     }
 
     public void editPerson(PersonEditView personEditView) {
-        String insertPersonSQL = "UPDATE public.person p SET email = ?, first_name = ?, age = ?, last_name = ? WHERE p.id_person = ?";
-        String checkIfExists = "SELECT email FROM public.person p WHERE p.person_id = ?";
+        String insertPersonSQL = "UPDATE cinema.person p SET email = ?, first_name = ?, age = ?, last_name = ? WHERE p.person_id = ?";
+        String checkIfExists = "SELECT email FROM cinema.person p WHERE p.person_id = ?";
         try (Connection connection = DataSourceConfig.getConnection();
              // would be beneficial if I will return the created entity back
              PreparedStatement preparedStatement = connection.prepareStatement(insertPersonSQL, Statement.RETURN_GENERATED_KEYS)) {
             // set prepared statement variables
             preparedStatement.setString(1, personEditView.getEmail());
             preparedStatement.setString(2, personEditView.getFirstName());
-            preparedStatement.setString(3, personEditView.getAge());
+            preparedStatement.setInt(3, Integer.valueOf(personEditView.getAge()));
             preparedStatement.setString(4, personEditView.getSurname());
             preparedStatement.setLong(5, personEditView.getId());
 
@@ -133,6 +132,7 @@ public class PersonRepository {
 
 
 
+
     private PersonAuthView mapToPersonAuth(ResultSet rs) throws SQLException {
         PersonAuthView person = new PersonAuthView();
         person.setEmail(rs.getString("email"));
@@ -147,7 +147,6 @@ public class PersonRepository {
         personBasicView.setGivenName(rs.getString("first_name"));
         personBasicView.setFamilyName(rs.getString("last_name"));
         personBasicView.setAge(rs.getString("age"));
-        personBasicView.setCity(rs.getString("city"));
         return personBasicView;
     }
 
@@ -159,8 +158,7 @@ public class PersonRepository {
         personDetailView.setFamilyName(rs.getString("last_name"));
         personDetailView.setAge(rs.getString("age"));
         personDetailView.setCity(rs.getString("city"));
-        personDetailView.sethouseNumber(rs.getString("house_number"));
-        personDetailView.setStreet(rs.getString("street"));
+        personDetailView.setRole(rs.getString("role"));
         return personDetailView;
     }
 

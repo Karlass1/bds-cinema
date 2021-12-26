@@ -12,8 +12,7 @@ public class PersonDetailView {
     private StringProperty familyName = new SimpleStringProperty();
     private StringProperty age = new SimpleStringProperty();
     private StringProperty city = new SimpleStringProperty();
-    private StringProperty street = new SimpleStringProperty();
-    private StringProperty houseNumber = new SimpleStringProperty();
+    private StringProperty role = new SimpleStringProperty();
 
     public Long getId() {
         return idProperty().get();
@@ -63,20 +62,12 @@ public class PersonDetailView {
         this.cityProperty().setValue(city);
     }
 
-    public String gethouseNumber() {
-        return houseNumberProperty().get();
+    public String getRole() {
+        return roleProperty().get();
     }
 
-    public void sethouseNumber(String houseNumber) {
-        this.houseNumberProperty().setValue(houseNumber);
-    }
-
-    public String getStreet() {
-        return streetProperty().get();
-    }
-
-    public void setStreet(String street) {
-        this.streetProperty().setValue(street);
+    public void setRole(String role) {
+        this.roleProperty().setValue(role);
     }
 
     public LongProperty idProperty() {
@@ -103,13 +94,7 @@ public class PersonDetailView {
         return city;
     }
 
-    public StringProperty houseNumberProperty() {
-        return houseNumber;
-    }
-
-    public StringProperty streetProperty() {
-        return street;
-    }
+    public StringProperty roleProperty() { return role; }
 
 
 }

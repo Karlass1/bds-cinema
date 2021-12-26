@@ -30,10 +30,7 @@ public class PersonsDetailViewController {
     private TextField cityTextField;
 
     @FXML
-    private TextField houseNumberTextField;
-
-    @FXML
-    private TextField streetTextField;
+    private TextField roleTextField;
 
     // used to reference the stage and to get passed data through it
     public Stage stage;
@@ -50,8 +47,7 @@ public class PersonsDetailViewController {
         lastNameTextField.setEditable(false);
         ageTextField.setEditable(false);
         cityTextField.setEditable(false);
-        houseNumberTextField.setEditable(false);
-        streetTextField.setEditable(false);
+        roleTextField.setEditable(false);
 
         loadPersonsData();
 
@@ -68,8 +64,7 @@ public class PersonsDetailViewController {
             lastNameTextField.setText(personBasicView.getFamilyName());
             ageTextField.setText(personBasicView.getAge());
             cityTextField.setText(personBasicView.getCity());
-            houseNumberTextField.setText(personBasicView.gethouseNumber());
-            streetTextField.setText(personBasicView.getStreet());
+            roleTextField.setText(personBasicView.getRole());
         }
     }
 

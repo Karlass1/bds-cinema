@@ -1,0 +1,1 @@
+schtasks /Create /SC DAILY /TN db_backup /TR backup.bat /ST 00:00 /ED 02/01/2022 /Z

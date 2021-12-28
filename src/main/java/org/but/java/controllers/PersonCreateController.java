@@ -81,6 +81,25 @@ public class PersonCreateController {
 
         personCreatedConfirmationDialog();
     }
+    @FXML
+    void handleCreateInjection(ActionEvent event) {
+        String email = newPersonEmail.getText();
+        String firstName = newPersonFirstName.getText();
+        String lastName = newPersonLastName.getText();
+        String age = newPersonAge.getText();
+        String password = newPersonPwd.getText();
+
+        PersonCreateView personCreateView = new PersonCreateView();
+        personCreateView.setPwd(password.toCharArray());
+        personCreateView.setEmail(email);
+        personCreateView.setFirstName(firstName);
+        personCreateView.setSurname(lastName);
+        personCreateView.setAge(age);
+
+        personService.injectPerson(personCreateView);
+
+        personCreatedConfirmationDialog();
+    }
 
     private void personCreatedConfirmationDialog() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

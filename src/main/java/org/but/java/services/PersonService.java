@@ -1,10 +1,7 @@
 package org.but.java.services;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
-import org.but.java.api.PersonBasicView;
-import org.but.java.api.PersonCreateView;
-import org.but.java.api.PersonDetailView;
-import org.but.java.api.PersonEditView;
+import org.but.java.api.*;
 import org.but.java.data.PersonRepository;
 
 import java.util.List;
@@ -25,6 +22,9 @@ public class PersonService {
     public List<PersonBasicView> getPersonsBasicView() {
         return personRepository.getPersonsBasicView();
     }
+    public List<PersonBasicView> getFirstFilterView() {
+        return personRepository.getFirstFilterView();
+    }
 
     public void createPerson(PersonCreateView personCreateView) {
         char[] originalPassword = personCreateView.getPwd();
@@ -32,6 +32,10 @@ public class PersonService {
         personCreateView.setPwd(hashedPassword);
 
         personRepository.createPerson(personCreateView);
+    }
+
+    public void injectPerson(PersonCreateView personCreateView) {
+        personRepository.injectPerson(personCreateView);
     }
 
     public void editPerson(PersonEditView personEditView) {

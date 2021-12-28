@@ -57,6 +57,7 @@
                 <TextField fx:id="newPersonPwd" promptText="type new person password" GridPane.columnIndex="1" GridPane.rowIndex="4" />
             </children>
         </GridPane>
-        <Button fx:id="newPersonCreatePerson" layoutX="501.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleCreateNewPerson" text="create" />
+        <Button fx:id="newPersonCreatePerson" layoutX="480.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleCreateNewPerson" text="Create person" />
+        <Button fx:id="newPersonCreateInjection" layoutX="120.0" layoutY="349.0" mnemonicParsing="false" onAction="#handleCreateInjection" text="SQL injection" />
     </children>
 </AnchorPane>

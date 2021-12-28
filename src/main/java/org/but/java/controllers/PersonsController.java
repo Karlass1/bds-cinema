@@ -16,8 +16,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+
 import org.but.java.services.PersonService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,7 +24,6 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -37,6 +35,12 @@ public class PersonsController {
     public Button addPersonButton;
     @FXML
     public Button refreshButton;
+    public Button filterEmail;
+    public Button filterFn;
+    public Button filterGn;
+    @FXML
+    private TextField filterInput;
+
     @FXML
     private TableColumn<PersonBasicView, Long> personsId;
     @FXML
@@ -53,7 +57,8 @@ public class PersonsController {
 
     private PersonService personService;
     private PersonRepository personRepository;
-
+    public static String choice;
+    public static String input;
     public PersonsController() {
     }
 
@@ -159,6 +164,10 @@ public class PersonsController {
         List<PersonBasicView> persons = personService.getPersonsBasicView();
         return FXCollections.observableArrayList(persons);
     }
+    private ObservableList<PersonBasicView> initializeFirstFilterData() {
+        List<PersonBasicView> persons = personService.getFirstFilterView();
+        return FXCollections.observableArrayList(persons);
+    }
 
 
     public void handleExitMenuItem(ActionEvent event) {
@@ -192,5 +201,26 @@ public class PersonsController {
         systemPersonsTableView.refresh();
         systemPersonsTableView.sort();
     }
-
+    public void handleFirstFilterButton(ActionEvent actionEvent) {
+        choice = "first_name";
+        ObservableList<PersonBasicView> observablePersonsList = initializeFirstFilterData();
+        systemPersonsTableView.setItems(observablePersonsList);
+        systemPersonsTableView.refresh();
+        systemPersonsTableView.sort();
+    }
+    public void handleLastFilterButton(ActionEvent actionEvent) {
+        choice = "last_name";
+        ObservableList<PersonBasicView> observablePersonsList = initializeFirstFilterData();
+        systemPersonsTableView.setItems(observablePersonsList);
+        systemPersonsTableView.refresh();
+        systemPersonsTableView.sort();
+    }
+    public void handleEmailFilterButton(ActionEvent actionEvent) {
+        choice = "email";
+        input = filterInput.getText();
+        ObservableList<PersonBasicView> observablePersonsList = initializeFirstFilterData();
+        systemPersonsTableView.setItems(observablePersonsList);
+        systemPersonsTableView.refresh();
+        systemPersonsTableView.sort();
+    }
 }

@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-
+import org.but.java.controllers.PersonsController;
 public class PersonRepository {
 
     private static final Logger logger = LoggerFactory.getLogger(PersonRepository.class);
@@ -72,9 +72,26 @@ public class PersonRepository {
             throw new DataAccessException("Persons basic view could not be loaded.", e);
         }
     }
+    public List<PersonBasicView> getFirstFilterView() {
+        String filterSQL = "SELECT person_id, email, first_name, last_name, age FROM cinema.person WHERE %s LIKE ?";
+        filterSQL = String.format(filterSQL, PersonsController.choice);
+        System.out.println(filterSQL);
+        try (Connection connection = DataSourceConfig.getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(filterSQL);) {
+             preparedStatement.setString(1, PersonsController.input+"%");
+             ResultSet resultSet = preparedStatement.executeQuery();
+            List<PersonBasicView> personBasicViews = new ArrayList<>();
+            while (resultSet.next()) {
+                personBasicViews.add(mapToPersonBasicView(resultSet));
+            }
+            return personBasicViews;
+        } catch (SQLException e) {
+            throw new DataAccessException("Persons basic view could not be loaded.", e);
+        }
+    }
 
     public void createPerson(PersonCreateView personCreateView) {
-        String insertPersonSQL = "INSERT INTO cinema.person (first_name, last_name, age, email, pwd) VALUES (?, ?, ? ,? , ?)";
+        String insertPersonSQL = "INSERT INTO cinema.person (first_name, last_name, age, email, pwd) VALUES (?, ?, ?, ?, ?)";
         try (Connection connection = DataSourceConfig.getConnection();
              // would be beneficial if I will return the created entity back
              PreparedStatement preparedStatement = connection.prepareStatement(insertPersonSQL, Statement.RETURN_GENERATED_KEYS)) {
@@ -84,12 +101,26 @@ public class PersonRepository {
             preparedStatement.setInt(3, Integer.valueOf(personCreateView.getAge()));
             preparedStatement.setString(4, personCreateView.getEmail());
             preparedStatement.setString(5, String.valueOf(personCreateView.getPwd()));
-            System.out.println(personCreateView.getPwd());
             int affectedRows = preparedStatement.executeUpdate();
-
             if (affectedRows == 0) {
                 throw new DataAccessException("Person creation  failed, no rows affected.");
             }
+        } catch (SQLException e) {
+            throw new DataAccessException("Person creation  failed operation on the database failed.");
+        }
+    }
+
+    public void injectPerson(PersonCreateView personCreateView) {
+        String insertPersonSQL = "INSERT INTO cinema.person (first_name, last_name, age, email, pwd) VALUES ('%s', '%s', '%d', '%s', '%s')";
+        insertPersonSQL = String.format(insertPersonSQL, personCreateView.getFirstName(), personCreateView.getSurname(),
+                Integer.valueOf(personCreateView.getAge()), personCreateView.getEmail(),
+                String.valueOf(personCreateView.getPwd())
+        );
+        System.out.println(insertPersonSQL);
+        try (Connection connection = DataSourceConfig.getConnection()) {
+             Statement inj = connection.createStatement();
+             int injectRows = inj.executeUpdate(insertPersonSQL);
+             System.out.println(injectRows);
         } catch (SQLException e) {
             throw new DataAccessException("Person creation  failed operation on the database failed.");
         }
@@ -129,8 +160,6 @@ public class PersonRepository {
             throw new DataAccessException("Person creation failed operation on the database failed.");
         }
     }
-
-
 
 
     private PersonAuthView mapToPersonAuth(ResultSet rs) throws SQLException {

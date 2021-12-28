@@ -1,40 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="org.but.java.controllers.PersonsController">
+<VBox prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.but.java.controllers.PersonsController">
     <children>
-        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="695.0" prefWidth="750.0" VBox.vgrow="ALWAYS">
             <children>
-                <Button alignment="CENTER" fx:id="addPersonButton" layoutX="292.0" layoutY="319.0"
-                        mnemonicParsing="false" text="Refresh" textFill="#131e9d"  onAction="#handleRefreshButton" />
-                <Button alignment="CENTER" fx:id="refreshButton" layoutX="281.0" layoutY="353.0"
-                        mnemonicParsing="false" text="Add person" textFill="#131e9d" onAction="#handleAddPersonButton" />
-                <TableView fx:id="systemPersonsTableView" layoutX="23.0" layoutY="79.0" prefHeight="200.0"
-                           prefWidth="593.0">
+                <Button fx:id="addPersonButton" alignment="CENTER" layoutX="292.0" layoutY="319.0" mnemonicParsing="false" onAction="#handleRefreshButton" text="Refresh" textFill="#131e9d" />
+                <Button fx:id="refreshButton" alignment="CENTER" layoutX="281.0" layoutY="353.0" mnemonicParsing="false" onAction="#handleAddPersonButton" text="Add person" textFill="#131e9d" />
+                <TableView fx:id="systemPersonsTableView" layoutX="23.0" layoutY="79.0" prefHeight="200.0" prefWidth="593.0">
                     <columns>
-                        <TableColumn fx:id="personsId" minWidth="75.0" prefWidth="80.00000303983688" text="id"/>
-                        <TableColumn fx:id="personsGivenName" minWidth="75.0" prefWidth="120.0" text="given name"/>
-                        <TableColumn fx:id="personsFamilyName" minWidth="75.0" prefWidth="120.0"
-                                     text="family name"/>
-                        <TableColumn fx:id="personsEmail" minWidth="75.0" prefWidth="160.00001525878906"
-                                     text="email"/>
-                        <TableColumn fx:id="personsAge" minWidth="75.0" prefWidth="120.0" text="age"/>
+                        <TableColumn fx:id="personsId" minWidth="75.0" prefWidth="80.00000303983688" text="id" />
+                        <TableColumn fx:id="personsGivenName" minWidth="75.0" prefWidth="120.0" text="given name" />
+                        <TableColumn fx:id="personsFamilyName" minWidth="75.0" prefWidth="120.0" text="family name" />
+                        <TableColumn fx:id="personsEmail" minWidth="75.0" prefWidth="160.00001525878906" text="email" />
+                        <TableColumn fx:id="personsAge" minWidth="75.0" prefWidth="120.0" text="age" />
                     </columns>
                 </TableView>
                 <Label alignment="CENTER" layoutX="294.0" layoutY="27.0" text="People">
                     <font>
-                        <Font size="22.0"/>
+                        <Font size="22.0" />
                     </font>
                 </Label>
+            <TextField fx:id="filterInput" layoutX="117.0" layoutY="431.0" prefHeight="25.0" prefWidth="202.0" promptText="Insert filter and choose mode" />
+          <TitledPane animated="false" expanded="false" layoutX="327.0" layoutY="431.0" prefHeight="153.0" prefWidth="202.0" text="Filter">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="70.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="filterGn" layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onAction="#handleFirstFilterButton" prefHeight="44.0" prefWidth="202.0" text="given name" />
+                        <Button fx:id="filterFn" layoutX="-1.0" layoutY="44.0" mnemonicParsing="false" onAction="#handleLastFilterButton" prefHeight="45.0" prefWidth="202.0" text="family name" />
+                        <Button fx:id="filterEmail" layoutX="-1.0" layoutY="89.0" mnemonicParsing="false" onAction="#handleEmailFilterButton" prefHeight="39.0" prefWidth="202.0" text="email" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </TitledPane>
             </children>
         </AnchorPane>
     </children>

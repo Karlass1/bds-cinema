@@ -30,22 +30,22 @@
                         <Insets left="5.0" />
                     </padding>
                 </Label>
-                <Label text="email" GridPane.rowIndex="1">
+                <Label text="Email" GridPane.rowIndex="1">
                     <padding>
                         <Insets left="5.0" />
                     </padding>
                 </Label>
-                <Label text="first name" GridPane.rowIndex="2">
+                <Label text="First name" GridPane.rowIndex="2">
                     <padding>
                         <Insets left="5.0" />
                     </padding>
                 </Label>
-                <Label text="last name" GridPane.rowIndex="3">
+                <Label text="Last name" GridPane.rowIndex="3">
                     <padding>
                         <Insets left="5.0" />
                     </padding>
                 </Label>
-                <Label text="age" GridPane.rowIndex="4">
+                <Label text="Age" GridPane.rowIndex="4">
                     <padding>
                         <Insets left="5.0" />
                     </padding>

@@ -95,7 +95,7 @@ public class PersonsController {
                 fxmlLoader.setLocation(App.class.getResource("fxml/PersonEdit.fxml"));
                 Stage stage = new Stage();
                 stage.setUserData(personView);
-                stage.setTitle("BDS JavaFX Edit Person");
+                stage.setTitle("BDS Cinema Edit Person");
 
                 PersonsEditController controller = new PersonsEditController();
                 controller.setStage(stage);
@@ -122,7 +122,7 @@ public class PersonsController {
                 PersonDetailView personDetailView = personService.getPersonDetailView(personId);
 
                 stage.setUserData(personDetailView);
-                stage.setTitle("BDS JavaFX Persons Detailed View");
+                stage.setTitle("BDS Cinema Persons Detailed View");
 
                 PersonsDetailViewController controller = new PersonsDetailViewController();
                 controller.setStage(stage);
@@ -180,14 +180,9 @@ public class PersonsController {
             fxmlLoader.setLocation(App.class.getResource("fxml/PersonsCreate.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 600, 500);
             Stage stage = new Stage();
-            stage.setTitle("BDS JavaFX Create Person");
+            stage.setTitle("BDS Cinema Create Person");
             stage.setScene(scene);
 
-//            Stage stageOld = (Stage) signInButton.getScene().getWindow();
-//            stageOld.close();
-//
-//            stage.getIcons().add(new Image(App.class.getResourceAsStream("logos/vut.jpg")));
-//            authConfirmDialog();
 
             stage.show();
         } catch (IOException ex) {
@@ -203,6 +198,7 @@ public class PersonsController {
     }
     public void handleFirstFilterButton(ActionEvent actionEvent) {
         choice = "first_name";
+        input = filterInput.getText();
         ObservableList<PersonBasicView> observablePersonsList = initializeFirstFilterData();
         systemPersonsTableView.setItems(observablePersonsList);
         systemPersonsTableView.refresh();
@@ -210,6 +206,7 @@ public class PersonsController {
     }
     public void handleLastFilterButton(ActionEvent actionEvent) {
         choice = "last_name";
+        input = filterInput.getText();
         ObservableList<PersonBasicView> observablePersonsList = initializeFirstFilterData();
         systemPersonsTableView.setItems(observablePersonsList);
         systemPersonsTableView.refresh();

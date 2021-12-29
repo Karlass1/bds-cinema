@@ -23,7 +23,7 @@
         </HBox>
         <Pane prefHeight="363.0" prefWidth="600.0">
             <children>
-                <Label layoutX="75.0" layoutY="40.0" text="Welcome to BDS JavaFX Demo">
+                <Label layoutX="75.0" layoutY="40.0" text="Welcome to BDS Cinema">
                     <font>
                         <Font size="26.0" />
                     </font>

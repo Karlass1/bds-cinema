@@ -78,7 +78,7 @@ public class PersonRepository {
         System.out.println(filterSQL);
         try (Connection connection = DataSourceConfig.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(filterSQL);) {
-             preparedStatement.setString(1, PersonsController.input+"%");
+             preparedStatement.setString(1, "%"+PersonsController.input+"%");
              ResultSet resultSet = preparedStatement.executeQuery();
             List<PersonBasicView> personBasicViews = new ArrayList<>();
             while (resultSet.next()) {
@@ -127,7 +127,12 @@ public class PersonRepository {
     }
 
     public void editPerson(PersonEditView personEditView) {
-        String insertPersonSQL = "UPDATE cinema.person p SET email = ?, first_name = ?, age = ?, last_name = ? WHERE p.person_id = ?";
+        String insertPersonSQL =
+                " begin;" +
+                " UPDATE cinema.person p SET email = ?, first_name = ?, age = ?, last_name = ? WHERE p.person_id = ?;" +
+                " INSERT INTO cinema.person_has_role (person_id, role_id) VALUES (?,5);" +
+                " commit;";
+
         String checkIfExists = "SELECT email FROM cinema.person p WHERE p.person_id = ?";
         try (Connection connection = DataSourceConfig.getConnection();
              // would be beneficial if I will return the created entity back
@@ -138,26 +143,34 @@ public class PersonRepository {
             preparedStatement.setInt(3, Integer.valueOf(personEditView.getAge()));
             preparedStatement.setString(4, personEditView.getSurname());
             preparedStatement.setLong(5, personEditView.getId());
+            preparedStatement.setLong(6, personEditView.getId());
 
             try {
+                connection.setAutoCommit(false);
                 try (PreparedStatement ps = connection.prepareStatement(checkIfExists, Statement.RETURN_GENERATED_KEYS)) {
                     ps.setLong(1, personEditView.getId());
                     ps.execute();
                 } catch (SQLException e) {
-                    throw new DataAccessException("This person for edit does not exist.");
+                    throw new DataAccessException("This person for edit do not exists.");
                 }
 
                 int affectedRows = preparedStatement.executeUpdate();
 
                 if (affectedRows == 0) {
-                    throw new DataAccessException("Person creation failed, no rows affected.");
+                    throw new DataAccessException("Person edit failed, no rows affected.");
                 }
 
+                System.out.println(connection);
+                connection.commit();
             } catch (SQLException e) {
 
+                connection.rollback();
+            } finally {
+
+                connection.setAutoCommit(true);
             }
         } catch (SQLException e) {
-            throw new DataAccessException("Person creation failed operation on the database failed.");
+            throw new DataAccessException("Person edit failed operation on the database failed.");
         }
     }
 

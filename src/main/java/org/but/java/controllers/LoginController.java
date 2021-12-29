@@ -110,9 +110,9 @@ public class LoginController {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(App.class.getResource("fxml/Persons2.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 600, 750);
+            Scene scene = new Scene(fxmlLoader.load(), 700, 600);
             Stage stage = new Stage();
-            stage.setTitle("BDS JavaFX Demo App");
+            stage.setTitle("BDS Cinema Manager");
             stage.setScene(scene);
 
             Stage stageOld = (Stage) signInButton.getScene().getWindow();
@@ -129,7 +129,7 @@ public class LoginController {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Unauthenticated");
         alert.setHeaderText("The user is not authenticated");
-        alert.setContentText("Please provide a valid username and password");//ww  w . j  a  va2s  .  co  m
+        alert.setContentText("Please provide a valid username and password");
 
         alert.showAndWait();
     }

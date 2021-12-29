@@ -25,22 +25,22 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Label text="email">
+                <Label text="Email">
                     <padding>
                         <Insets left="5.0" />
                     </padding>
                 </Label>
-                <Label text="first name" GridPane.rowIndex="1">
+                <Label text="First name" GridPane.rowIndex="1">
                     <padding>
                         <Insets left="5.0" />
                     </padding>
                 </Label>
-                <Label text="last name" GridPane.rowIndex="2">
+                <Label text="Last name" GridPane.rowIndex="2">
                     <padding>
                         <Insets left="5.0" />
                     </padding>
                 </Label>
-                <Label text="pwd" GridPane.rowIndex="4">
+                <Label text="Pwd" GridPane.rowIndex="4">
                     <padding>
                         <Insets left="5.0" />
                     </padding>

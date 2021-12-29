@@ -23,7 +23,7 @@ public class App extends Application {
             loader = new FXMLLoader(getClass().getResource("Login.fxml"));
             mainStage = loader.load();
 
-            primaryStage.setTitle("BDS JavaFX Demo");
+            primaryStage.setTitle("BDS Cinema");
             Scene scene = new Scene(mainStage);
 
             primaryStage.setScene(scene);

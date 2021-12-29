@@ -110,7 +110,7 @@ public class LoginController {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(App.class.getResource("fxml/Persons2.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 700, 600);
+            Scene scene = new Scene(fxmlLoader.load(), 750, 600);
             Stage stage = new Stage();
             stage.setTitle("BDS Cinema Manager");
             stage.setScene(scene);

@@ -44,7 +44,6 @@ public class PersonsEditController {
     private PersonRepository personRepository;
     private ValidationSupport validation;
 
-    // used to reference the stage and to get passed data through it
     public Stage stage;
 
     public void setStage(Stage stage) {
@@ -84,7 +83,6 @@ public class PersonsEditController {
 
     @FXML
     public void handleEditPersonButton(ActionEvent event) {
-        // can be written easier, its just for better explanation here on so many lines
         Long id = Long.valueOf(idTextField.getText());
         String email = emailTextField.getText();
         String firstName = firstNameTextField.getText();

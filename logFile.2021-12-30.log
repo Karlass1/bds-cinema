@@ -1,0 +1,192 @@
+485  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+548  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+8966 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+9537 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+28530 [JavaFX Application Thread] INFO  o.b.j.c.PersonCreateController - PersonCreateController initialized
+46232 [JavaFX Application Thread] INFO  o.b.j.c.PersonsDetailViewController - PersonsDetailViewController initialized
+53764 [JavaFX Application Thread] INFO  o.b.j.c.PersonsEditController - PersonsEditController initialized
+83417 [JavaFX Application Thread] INFO  o.b.j.c.PersonsDetailViewController - PersonsDetailViewController initialized
+480  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+29758 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+30458 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+150854 [JavaFX Application Thread] INFO  o.b.j.c.PersonCreateController - PersonCreateController initialized
+481  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+34590 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+35136 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+527  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+53786 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Pavlina.Sam@mail.eu
+54380 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+74411 [JavaFX Application Thread] INFO  o.b.j.c.PersonsEditController - PersonsEditController initialized
+484  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+36815 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Pasam@mail.eu
+555  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+460  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+441  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+68267 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+68804 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+74420 [JavaFX Application Thread] INFO  o.b.j.c.PersonsEditController - PersonsEditController initialized
+465  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+3972 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+4516 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+12589 [JavaFX Application Thread] INFO  o.b.j.c.PersonsEditController - PersonsEditController initialized
+498  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+4698 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+5228 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+15146 [JavaFX Application Thread] INFO  o.b.j.c.PersonsEditController - PersonsEditController initialized
+457  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+41230 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+41782 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+46005 [JavaFX Application Thread] INFO  o.b.j.c.PersonsEditController - PersonsEditController initialized
+59436 [JavaFX Application Thread] INFO  o.b.j.c.PersonsDetailViewController - PersonsDetailViewController initialized
+304  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+469  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+459  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+6423 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+6959 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+493  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+2950 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+3463 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+461  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+2929 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+3458 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+494  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+3519 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+4056 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+445  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+3025 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+3544 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+550  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+3031 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+3546 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+516  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+2933 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+3449 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+464  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+2909 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+3444 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+454  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+2689 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+3200 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+581  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+3199 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+3717 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+459  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+121118 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Ondra.Sam@mail.eu
+121651 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+290  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+83858 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+88008 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+88283 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+471  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+4913 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+5465 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+23339 [JavaFX Application Thread] INFO  o.b.j.c.PersonsDetailViewController - PersonsDetailViewController initialized
+30059 [JavaFX Application Thread] INFO  o.b.j.c.PersonsDetailViewController - PersonsDetailViewController initialized
+103665 [JavaFX Application Thread] INFO  o.b.j.c.PersonCreateController - PersonCreateController initialized
+155707 [JavaFX Application Thread] INFO  o.b.j.c.PersonsEditController - PersonsEditController initialized
+479  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+462  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+6007 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+6555 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+81118 [JavaFX Application Thread] INFO  o.b.j.c.PersonsDetailViewController - PersonsDetailViewController initialized
+90217 [JavaFX Application Thread] INFO  o.b.j.c.PersonsDetailViewController - PersonsDetailViewController initialized
+105361 [JavaFX Application Thread] INFO  o.b.j.c.PersonsDetailViewController - PersonsDetailViewController initialized
+107887 [JavaFX Application Thread] INFO  o.b.j.c.PersonsDetailViewController - PersonsDetailViewController initialized
+110471 [JavaFX Application Thread] INFO  o.b.j.c.PersonsEditController - PersonsEditController initialized
+117944 [JavaFX Application Thread] INFO  o.b.j.c.PersonsDetailViewController - PersonsDetailViewController initialized
+547  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+79591 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+80746 [JavaFX Application Thread] ERROR o.but.java.config.DataSourceConfig - Could not connect to the database.
+com.zaxxer.hikari.pool.HikariPool$PoolInitializationException: Failed to initialize pool: FATAL: password authentication failed for user "postgres"
+	at com.zaxxer.hikari.pool.HikariPool.throwPoolInitializationException(HikariPool.java:596)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:582)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at org.but.java.config.DataSourceConfig.<clinit>(DataSourceConfig.java:33)
+	at org.but.java.data.PersonRepository.findPersonByEmail(PersonRepository.java:19)
+	at org.but.java.services.AuthService.findPersonByEmail(AuthService.java:17)
+	at org.but.java.services.AuthService.authenticate(AuthService.java:25)
+	at org.but.java.controllers.LoginController.handleSignIn(LoginController.java:98)
+	at org.but.java.controllers.LoginController.signInActionHandler(LoginController.java:90)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at com.sun.javafx.reflect.Trampoline.invoke(MethodUtil.java:76)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at com.sun.javafx.reflect.MethodUtil.invoke(MethodUtil.java:273)
+	at com.sun.javafx.fxml.MethodHelper.invoke(MethodHelper.java:83)
+	at javafx.fxml.FXMLLoader$MethodHandler.invoke(FXMLLoader.java:1857)
+	at javafx.fxml.FXMLLoader$ControllerMethodEventHandler.handle(FXMLLoader.java:1729)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:86)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:49)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Node.fireEvent(Node.java:8889)
+	at javafx.scene.control.Button.fire(Button.java:203)
+	at com.sun.javafx.scene.control.behavior.ButtonBehavior.mouseReleased(ButtonBehavior.java:208)
+	at com.sun.javafx.scene.control.inputmap.InputMap.handle(InputMap.java:274)
+	at com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord.handleBubblingEvent(CompositeEventHandler.java:247)
+	at com.sun.javafx.event.CompositeEventHandler.dispatchBubblingEvent(CompositeEventHandler.java:80)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:234)
+	at com.sun.javafx.event.EventHandlerManager.dispatchBubblingEvent(EventHandlerManager.java:191)
+	at com.sun.javafx.event.CompositeEventDispatcher.dispatchBubblingEvent(CompositeEventDispatcher.java:59)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:58)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.BasicEventDispatcher.dispatchEvent(BasicEventDispatcher.java:56)
+	at com.sun.javafx.event.EventDispatchChainImpl.dispatchEvent(EventDispatchChainImpl.java:114)
+	at com.sun.javafx.event.EventUtil.fireEventImpl(EventUtil.java:74)
+	at com.sun.javafx.event.EventUtil.fireEvent(EventUtil.java:54)
+	at javafx.event.Event.fireEvent(Event.java:198)
+	at javafx.scene.Scene$MouseHandler.process(Scene.java:3856)
+	at javafx.scene.Scene.processMouseEvent(Scene.java:1851)
+	at javafx.scene.Scene$ScenePeerListener.mouseEvent(Scene.java:2584)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:409)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification.run(GlassViewEventHandler.java:299)
+	at java.base/java.security.AccessController.doPrivileged(Native Method)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.lambda$handleMouseEvent$2(GlassViewEventHandler.java:447)
+	at com.sun.javafx.tk.quantum.QuantumToolkit.runWithoutRenderLock(QuantumToolkit.java:412)
+	at com.sun.javafx.tk.quantum.GlassViewEventHandler.handleMouseEvent(GlassViewEventHandler.java:446)
+	at com.sun.glass.ui.View.handleMouseEvent(View.java:556)
+	at com.sun.glass.ui.View.notifyMouse(View.java:942)
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method)
+	at com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:174)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "postgres"
+	at org.postgresql.core.v3.ConnectionFactoryImpl.doAuthentication(ConnectionFactoryImpl.java:613)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.tryConnect(ConnectionFactoryImpl.java:161)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:213)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:51)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:225)
+	at org.postgresql.Driver.makeConnection(Driver.java:465)
+	at org.postgresql.Driver.connect(Driver.java:264)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	... 66 common frames omitted
+81508 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+84773 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+85496 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+97285 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+643  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+3968 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+4560 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
+548  [JavaFX Application Thread] INFO  o.b.j.controllers.LoginController - LoginController initialized
+12680 [JavaFX Application Thread] DEBUG org.but.java.data.PersonRepository - findPersonByEmail: Martina.Sam@mail.eu
+13273 [JavaFX Application Thread] INFO  o.b.j.controllers.PersonsController - PersonsController initialized
